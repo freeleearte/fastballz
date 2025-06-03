@@ -9,6 +9,7 @@
     /* flex: 0 0 calc(25% - 15px); */
     height: 300px;
     min-height: 373px;
+    color: #f1f1f1;
 }
 
 @media (max-width: 1024px) {
@@ -45,12 +46,19 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
+    position: relative;
+}
+
+.side b {
+    font-family: var(--eng-font);
+    font-size: 20px;
+    position: absolute;
+    top: -25%;
 }
 
 .side h3 {
     font-family: var(--main-font);
     font-size: 40px;
-    /* color: #f1f1f1; */
 }
 
 .image {
@@ -67,7 +75,7 @@
 
 .description {
     font-size: 0.9rem;
-    color: #555;
+    /* color: #555; */
     margin-bottom: 8px;
 }
 
@@ -79,13 +87,54 @@
 }
 
 .likes {
-    color: #888;
+    /* color: #888; */
 }
 
 .comments {
-    color: #888;
+    /* color: #888; */
+}
+
+.all {
+    background-color: #fff;
+    color: #000;
 }
 
 .doosan {
     background-color: #1A1748;
+}
+
+.kia {
+    background-color: #EA0029;
+}
+
+.lg {
+    background-color: #C30452;
+}
+
+.kiwoon {
+    background-color: #570514;
+}
+
+.kt {
+    background-color: #000000;
+}
+
+.hanwha {
+    background-color: #FC4E00;
+}
+
+.nc {
+    background-color: #315288;
+}
+
+.ssg {
+    background-color: #CE0E2D;
+}
+
+.samsung {
+    background-color: #074CA1;
+}
+
+.lotte {
+    background-color: #041E42;
 }

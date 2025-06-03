@@ -48,6 +48,7 @@ const GoodsCard = ({ item, likedIds, setLikedIds, goodsList, setGoodsList, class
             <Link to={`/detail/${item.id}`} className={styles.link}>
                 <img src={item.imageUrl} alt={item.title} className={styles.image} />
                 <div className={styles.side}>
+                    <b>{item.team}</b>
                     <h3 className={styles.title}>{item.title}</h3>
                     {/* 좋아요 수 + 찜 버튼 영역 */}
                     <div className={styles.cardFooter}>
