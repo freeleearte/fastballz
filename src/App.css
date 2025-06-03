@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
+/* 공통 레이아웃 */
+:root {
+  --main-color: #F26949;
+  --bg-light-color: #ECEAD5;
+  --bg-dark-color: #101010;
+  --sub-color: #29BDBF;
+  --sub-color-2: #023047;
+  --title-font: 'Spoqa Han Sans Neo', 'sans-serif';
+  --eng-font: "Bebas Neue", sans-serif;
+  --main-font: 'Tmoney Round Wind';
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light-color);
+  color: #333;
 }
 
-.App-header {
-  background-color: #282c34;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+}
+
+.inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.layout header {
+  /* border-bottom: 1px solid #eee; */
+  background-color: var(--main-color);
+  font-size: 1.1rem;
+  width: 100vw;
+  height: 80px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.placeholder {
+  height: 80px;
+  width: 100%;
+}
+
+.layout main {
+  flex: 1;
+
+}
+
+.layout footer {
+  width: 100%;
+  text-align: center;
+  padding-block: 64px;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: var(--title-font);
+  color: var(--sub-color-2);
+}
+
+.layout footer .f_top {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 30px;
+  margin-bottom: 32px;
 }
 
-.App-link {
-  color: #61dafb;
+.layout footer .f_top a {
+  font-size: 20px;
+  font-weight: 500;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.layout footer .f_bot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 64px;
+  gap: 20px;
+}
+
+.layout footer .f_bot li {
+  width: 32px;
+  cursor: pointer;
+}
+
+.layout footer .f_bot li img {
+  width: 100%;
+}
+
+.layout footer p {
+  font-size: 18px;
+}
+
+/* 반응형 레이아웃 */
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 16px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width:450px) {
+  .layout header {
+    font-size: 1rem;
+    white-space: nowrap;
+    height: 46px;
   }
 }

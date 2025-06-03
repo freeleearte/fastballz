@@ -1,0 +1,171 @@
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.goods {
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.goods h2 {
+    font-family: var(--main-font);
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.edit {
+    align-self: flex-end;
+}
+
+.edit form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.editBtn {
+    padding: 5px 10px;
+    background-color: inherit;
+    color: #000;
+    border: 1px solid var(--main-color);
+    border-radius: 100px;
+    font-family: var(--main-font);
+    font-weight: 700;
+    font-size: 18px;
+    transition: border-color 0.2s ease;
+}
+
+.editBtnWrap {
+    display: flex;
+    gap: 12px;
+    align-self: flex-end;
+}
+
+.formWrap {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.formWrap h2 {
+    font-family: var(--main-font);
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--sub-color);
+}
+
+.form {
+    width: 900px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    box-sizing: border-box;
+}
+
+.input {
+    padding: 10px;
+    font-size: 20px;
+    border: 3px solid var(--main-color);
+    border-radius: 20px;
+    background-color: inherit;
+    height: 60px;
+    font-family: var(--main-font);
+}
+
+input[type=file]::file-selector-button {
+    width: 15%;
+    background-color: inherit;
+    border: 2px solid var(--main-color);
+    border-radius: 20px;
+    font-family: var(--main-font);
+    font-size: 18px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.textarea {
+    padding: 10px;
+    font-size: 20px;
+    height: 100px;
+    border: 3px solid var(--main-color);
+    border-radius: 20px;
+    resize: vertical;
+    background-color: inherit;
+    font-family: var(--main-font);
+}
+
+.btnWrap {
+    padding: 10px;
+    border: 2px solid var(--main-color);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    padding: 5px 10px;
+    background-color: inherit;
+    color: #000;
+    border: 1px solid var(--main-color);
+    border-radius: 100px;
+    font-family: var(--main-font);
+    font-weight: 700;
+    font-size: 25px;
+    transition: border-color 0.2s ease;
+}
+
+.btnWrap:hover,
+.button:hover,
+.editBtn:hover {
+    border-color: #3e4dd4;
+}
+
+.preview {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid var(--main-color);
+}
+
+.filter {
+    width: 460px;
+    height: 750px;
+    border-radius: 20px;
+    border: 3px solid var(--main-color);
+    position: sticky;
+    top: 10%;
+    z-index: -1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: var(--title-font);
+    font-size: 25px;
+}
+
+.filter .top {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.filter .bot {}
+
+.filter .bot li {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

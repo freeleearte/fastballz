@@ -1,0 +1,88 @@
+.card_list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 280px;
+    height: 300px;
+    box-shadow: 0 0 0 5px var(--sub-color) inset;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: #F1F1F165;
+    color: #2d2d2d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--title-font);
+    padding-block: 20px;
+}
+
+.title {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.title p {
+    padding-inline: 8px;
+    line-height: .3;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.title p:first-child {
+    border-right: 1px solid #868686;
+}
+
+.card b {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: var(--sub-color);
+}
+
+.info {
+    display: flex;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 100px;
+    margin-bottom: 25px;
+}
+
+.info span {
+    font-size: 20px;
+    color: #000;
+}
+
+.card .bottom {
+    display: flex;
+    gap: 20px;
+}
+
+.card .bottom>i {
+    font-family: var(--eng-font);
+    font-size: 30px;
+}
+
+.card .bottom div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card .bottom div img {}
+
+.card .bottom div em {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card .bottom div em i {
+    color: #10a0a2;
+    margin-right: 3px;
+}
