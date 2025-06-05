@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Goods } from "../types";
 import styles from './form.module.css';
 import Layout from "../components/Layout";
-import checkboxImg from '../asset/checkbox.png';
 
 const Detail = () => {
     const { id } = useParams<{ id: string }>();
@@ -98,23 +97,6 @@ const Detail = () => {
                         </div>)
                         : (<p style={{ padding: '40px 0', textAlign: 'center' }}>굿즈를 찾을 수 없습니다</p>)
                 }
-                <div className={styles.filter}>
-                    <div className={styles.top}>
-                        <p>밴치 클리어링 모드</p>
-                    </div>
-                    <ul className={styles.bot}>
-                        <li><img src={checkboxImg} alt="체크박스" />KIA</li>
-                        <li><img src={checkboxImg} alt="체크박스" />두산</li>
-                        <li><img src={checkboxImg} alt="체크박스" />KT</li>
-                        <li><img src={checkboxImg} alt="체크박스" />LG</li>
-                        <li><img src={checkboxImg} alt="체크박스" />한화</li>
-                        <li><img src={checkboxImg} alt="체크박스" />롯데</li>
-                        <li><img src={checkboxImg} alt="체크박스" />삼성</li>
-                        <li><img src={checkboxImg} alt="체크박스" />SSG</li>
-                        <li><img src={checkboxImg} alt="체크박스" />NC</li>
-                        <li><img src={checkboxImg} alt="체크박스" />키움</li>
-                    </ul>
-                </div>
             </div>
         </Layout >
     );

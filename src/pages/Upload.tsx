@@ -69,8 +69,8 @@ const Upload = () => {
                 <div className={styles.form} >
                     <label htmlFor="team-select">팀을 선택해주세요 :</label>
                     <select id="team-select"className={styles.option} value={team} onChange={handleTeamChange}>
-                        <option value="kia">KIA 타이거즈</option>
                         <option value="all">전체 팀</option>
+                        <option value="kia">KIA 타이거즈</option>
                         <option value="doosan">두산 베어스</option>
                         <option value="lotte">롯데 자이언츠</option>
                         <option value="kt">KT 위즈</option>
