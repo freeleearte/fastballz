@@ -2,9 +2,10 @@
 :root {
   --main-color: #F26949;
   --bg-light-color: #ECEAD5;
-  --bg-dark-color: #101010;
+  --bg-dark-color: #2D2D2D;
   --sub-color: #29BDBF;
   --sub-color-2: #023047;
+  --font-color-1: #F1F1F1;
   --title-font: 'Spoqa Han Sans Neo', 'sans-serif';
   --eng-font: "Bebas Neue", sans-serif;
   --main-font: 'Tmoney Round Wind';
@@ -17,7 +18,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--bg-light-color);
+  background-color: var(--bg-dark-color);
   color: #333;
 }
 
@@ -48,7 +49,10 @@ body,
 
 .layout header {
   /* border-bottom: 1px solid #eee; */
-  background-color: var(--main-color);
+  background: rgba(255, 255, 255, 0.10);
+  background-blend-mode: plus-lighter;
+  box-shadow: 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.50) inset, 2px 2px 1px -2px #666 inset, -2px -2px 1px -2px #666 inset, 0px 0px 22px 0px #F2F2F2 inset;
+  backdrop-filter: blur(6px);
   font-size: 1.1rem;
   width: 100vw;
   height: 80px;
@@ -77,7 +81,7 @@ body,
   flex-direction: column;
   align-items: center;
   font-family: var(--title-font);
-  color: var(--sub-color-2);
+  color: #fff;
 }
 
 .layout footer .f_top {

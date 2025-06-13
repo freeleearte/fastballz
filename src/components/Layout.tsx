@@ -31,8 +31,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/trending">
-                                Trending
+                            <NavLink to="/news">
+                                NEWS
                             </NavLink>
                         </li>
                         <li>

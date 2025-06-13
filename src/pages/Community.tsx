@@ -70,6 +70,7 @@ const Community = () => {
 
             {/* 굿즈 카드 리스트 영역 */}
             <div className={styles.listWrap}>
+                <TeamFilter selectedTeams={selectedTeams} onToggleTeam={toggleTeam} />
                 <div className={styles.list}>
                     {
                         displayedList.map((item) => (
@@ -85,7 +86,6 @@ const Community = () => {
                         ))
                     }
                 </div>
-                <TeamFilter selectedTeams={selectedTeams} onToggleTeam={toggleTeam} />
             </div>
         </Layout>
     );

@@ -7,6 +7,7 @@ import Liked from "./pages/Liked"; // 찜한굿즈보기
 import Trending from "./pages/Trending"; // 인기굿즈보기
 import About from "./pages/About"; // 소개
 import Community from "./pages/Community";
+import News from "./pages/News";
 import { GoodsProvider } from "./context/GoodsContext";
 import { BadWordFilterProvider } from "./context/BadWordFilterContext";
 import './reset.css';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/trending" element={<Trending />} />
           <Route path="/teams" element={<About />} />
           <Route path="/community" element={<Community />} />
+          <Route path="/news" element={<News />} />
         </Routes>
       </GoodsProvider>
     </BadWordFilterProvider>
