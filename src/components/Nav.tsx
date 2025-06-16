@@ -1,15 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState } from 'react';
 import styles from './Nav.module.css';
 import logoImg from '../asset/logo.png';
 
 const Nav = () => {
     const [query, setQuery] = useState('');
+    const location = useLocation();
 
     const handleSearch = () => {
         // 여기에 검색 로직을 작성 (예: 검색어를 기반으로 리스트 필터링)
         console.log('검색어:', query);
     };
+    const isCommunityActive = location.pathname.startsWith('/community') || location.pathname.startsWith('/trending');
 
     return (
         <nav className={`${styles.nav} inner`}>
@@ -29,7 +31,7 @@ const Nav = () => {
             </div>
             <ul className={styles.menu}>
                 <li>
-                    <NavLink to="/community" className={({ isActive }) => (isActive ? styles.active : '')}>
+                    <NavLink to="/community" className={isCommunityActive ? styles.active : ''}>
                         community
                     </NavLink>
                 </li>

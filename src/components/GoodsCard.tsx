@@ -47,13 +47,18 @@ const GoodsCard = ({ item, likedIds, setLikedIds, goodsList, setGoodsList, class
         <div className={`${styles.card} ${className ?? ''} ${styles[item.team]}`}>
             <Link to={`/detail/${item.id}`} className={styles.link}>
                 <img src={item.imageUrl} alt={item.title} className={styles.image} />
-                <div className={styles.side}>
-                    <b>{item.team}</b>
-                    <h3 className={styles.title}>{item.title}</h3>
-                    {/* 좋아요 수 + 찜 버튼 영역 */}
-                    <div className={styles.cardFooter}>
-                        <p className={styles.likes}>❤️ {item.likes}</p>
-                        <p className={styles.comments}>❤️ {item.likes}</p>
+                <div className={styles.info}>
+                    <div className={styles.top}>
+                        <div className={styles.teamImg}>
+                            <img src="" alt="" />
+                        </div>
+                        <div className={styles.right}>
+                            <p className={styles.likes}>❤️ {item.likes}</p>
+                            <p className={styles.comments}>❤️ {item.likes}</p>
+                        </div>
+                    </div>
+                    <div className={styles.bot}>
+                        <h3 className={styles.title}>{item.title}</h3>
                     </div>
                 </div>
             </Link>

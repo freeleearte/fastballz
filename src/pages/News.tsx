@@ -10,7 +10,7 @@ const News = () => {
 
     return (
         <Layout>
-            <section className={styles.sec2}>
+            <section className={`${styles.sec2} inner`}>
                 <h2>NEWS</h2>
                 <NewsItemList />
             </section>

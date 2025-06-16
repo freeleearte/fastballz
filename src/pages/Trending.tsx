@@ -38,8 +38,8 @@ const Trending = () => {
 
     return (
         <Layout>
-            <h2 style={{ marginBlock: '20px' }}>인기 굿즈 순</h2>
             <div className={styles.listWrap}>
+                    <TeamFilter selectedTeams={selectedTeams} onToggleTeam={handleToggleTeam} />
                 <div className={styles.list}>
                     {filteredList.map((item) => (
                         <GoodsCard
@@ -52,7 +52,6 @@ const Trending = () => {
                         />
                     ))}
                 </div>
-                <TeamFilter selectedTeams={selectedTeams} onToggleTeam={handleToggleTeam} />
             </div>
         </Layout>
     );

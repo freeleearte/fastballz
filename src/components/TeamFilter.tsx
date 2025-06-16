@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './TeamFilter.module.css';
 import { useBadWordFilter } from '../context/BadWordFilterContext';
 import filterOffImg from '../asset/filterbutton_off.png';
 import filterOnImg from '../asset/filterbutton_on.png';
 import checkboxImg from '../asset/checkbox.png';
 import checkedImg from '../asset/checkbox_checked.png';
+import { NavLink } from 'react-router-dom';
 
 interface TeamFilterProps {
     selectedTeams: string[];
@@ -26,29 +27,49 @@ const teams = [
 
 const TeamFilter: React.FC<TeamFilterProps> = ({ selectedTeams, onToggleTeam }) => {
     const { badWordFilterOn, toggleBadWordFilter } = useBadWordFilter();
+    const [showFilter, setShowFilter] = useState(true);
+    const [showTeamList, setShowTeamList] = useState(true);
+
     return (
-        <div className={styles.filter}>
-            <div className={styles.top}>
-                <p>밴치 클리어링 모드</p>
-                <img src={badWordFilterOn ? filterOnImg : filterOffImg} alt="욕설 필터링 모드" onClick={toggleBadWordFilter} />
+        <div className={`${styles.filter} ${showFilter ? styles.show : styles.hide}`}>
+            <div className={styles.toggleBtn} onClick={() => setShowFilter(!showFilter)} >
+                <img src="" alt="" />
             </div>
-            <ul className={styles.bot}>
-                {teams.map((team) => (
-                    <li
-                        key={team.id}
-                        onClick={() => onToggleTeam(team.id)}
-                        className={selectedTeams.includes(team.id) ? styles.active : ''}
-                    >
-                        <img
-                            src={selectedTeams.includes(team.id) ? checkedImg : checkboxImg}
-                            alt="체크박스"
-                        />
-                        <span className={selectedTeams.includes(team.id) ? styles.activeText : ''}>
-                            {team.name}
-                        </span>
-                    </li>
-                ))}
-            </ul>
+            <div className={styles.top}>
+                <NavLink to={`/upload`}>
+                    <img src="" alt="" />
+                    <p>Upload</p>
+                </NavLink>
+            </div>
+            <div className={styles.mid}>
+                <p><NavLink to={`/community`} className={({ isActive }) => (isActive ? styles.active : '')}><img src="" alt="" />최신</NavLink></p>
+                <p><NavLink to={`/trending`} className={({ isActive }) => (isActive ? styles.active : '')}><img src="" alt="" />인기</NavLink></p>
+                <p onClick={() => setShowTeamList(!showTeamList)} className={styles.toggleTitle}>
+                    <img src="" alt="" />
+                    구단 별
+                </p>
+                <ul className={`${styles.teamList} ${showTeamList ? styles.open : styles.closed}`}>
+                    {teams.map((team) => (
+                        <li
+                            key={team.id}
+                            onClick={() => onToggleTeam(team.id)}
+                            className={selectedTeams.includes(team.id) ? styles.active : ''}
+                        >
+                            <img
+                                src={selectedTeams.includes(team.id) ? checkedImg : checkboxImg}
+                                alt="체크박스"
+                            />
+                            <span className={selectedTeams.includes(team.id) ? styles.activeText : ''}>
+                                {team.name}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div className={styles.bot}>
+                <p>밴치 클리어링 모드</p>
+                {/* <img src={badWordFilterOn ? filterOnImg : filterOffImg} alt="욕설 필터링 모드" onClick={toggleBadWordFilter} /> */}
+            </div>
         </div>
     );
 };

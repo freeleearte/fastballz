@@ -51,8 +51,13 @@ body,
   /* border-bottom: 1px solid #eee; */
   background: rgba(255, 255, 255, 0.10);
   background-blend-mode: plus-lighter;
-  box-shadow: 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.50) inset, 2px 2px 1px -2px #666 inset, -2px -2px 1px -2px #666 inset, 0px 0px 22px 0px #F2F2F2 inset;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(0.25em) brightness(1.2) saturate(1.2);
+  box-shadow:
+    0 0.1em 0.25em 0 oklch(0 0 0 / 15%),
+    0 0 1em 0 oklch(0 0 0 / 12.5%),
+    inset -0.075em -0.075em 0.025em 0 oklch(1 0 0 / 40%),
+    inset -0.15em -0.15em 0.1em 0 oklch(1 0 0 / 30%),
+    inset 0 0 3em .5em oklch(0 0 0 / 20%);
   font-size: 1.1rem;
   width: 100vw;
   height: 80px;
@@ -65,6 +70,7 @@ body,
 .placeholder {
   height: 80px;
   width: 100%;
+  margin-bottom: 90px;
 }
 
 .layout main {

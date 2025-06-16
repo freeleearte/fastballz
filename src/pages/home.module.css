@@ -1,6 +1,6 @@
 .sec1 {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 90px);
     justify-self: center;
     display: flex;
     align-items: center;

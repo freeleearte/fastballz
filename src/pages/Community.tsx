@@ -62,11 +62,6 @@ const Community = () => {
                     {showOnlyLiked ? '전체 보기' : '찜한 굿즈만 보기'}
                 </button>
             </div> */}
-            <div className={styles.topBar}>
-                <Link to={`/upload`} className={styles.uploadButton}>
-                    Upload
-                </Link>
-            </div>
 
             {/* 굿즈 카드 리스트 영역 */}
             <div className={styles.listWrap}>

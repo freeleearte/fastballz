@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Nav />
             </header>
             <div className="placeholder"></div>
-            <main className='inner'>
+            <main>
                 {children}
             </main>
             <footer>
