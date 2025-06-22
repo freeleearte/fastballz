@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import Layout from "../components/Layout";
 import NewsItemList from "../components/NewsItemList";
 import styles from './home.module.css';

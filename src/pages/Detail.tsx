@@ -1,10 +1,26 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Goods } from "../types";
 import GoodsCard from "../components/GoodsCard";
 import { useGoods } from "../context/GoodsContext";
 import styles from './form.module.css';
 import Layout from "../components/Layout";
+
+type Comment = {
+    id: string;
+    goodsId: string;
+    content: string;
+    createdAt: string;
+};
+
+// 댓글 개수를 외부에서 가져오는 함수
+export const getCommentCount = (goodsId: string): number => {
+    const data = localStorage.getItem('comments');
+    if (!data) return 0;
+
+    const all: Comment[] = JSON.parse(data);
+    return all.filter(c => c.goodsId === goodsId).length;
+};
 
 const Detail = () => {
     const { id } = useParams<{ id: string }>();
@@ -15,6 +31,8 @@ const Detail = () => {
     const [pwMatched, setPwMatched] = useState(false); // 비밀번호 일치 여부
     const { goodsList, setGoodsList } = useGoods();
     const [likedIds, setLikedIds] = useState<string[]>([]);
+    const [comments, setComments] = useState<Comment[]>([]);
+    const [newComment, setNewComment] = useState('');
 
     useEffect(() => {
         const storedGoods = localStorage.getItem('goodsList');
@@ -26,14 +44,20 @@ const Detail = () => {
         if (liked) {
             setLikedIds(JSON.parse(liked));
         }
-    }, []);
 
-    const suggestedItems = goodsList
-        // 현재 상세 페이지 제외
-        .filter(item => item.id !== id)
-        // 무작위 섞기
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3);
+        const commentData = localStorage.getItem('comments');
+        if (commentData) {
+            const parsed: Comment[] = JSON.parse(commentData);
+            setComments(parsed.filter(c => c.goodsId === id));
+        }
+    }, [id]);
+
+    const suggestedItems = useMemo(() => {
+        return goodsList
+            .filter(item => item.id !== id)
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 3);
+    }, [goodsList, id]);
 
     // 로컬 스토리지에서 굿즈 정보 불러오기
     useEffect(() => {
@@ -75,9 +99,36 @@ const Detail = () => {
             // 좋아요 관련 키 모두 한번에 처리
             removeIdFromStorageArray('likedGoods', goods.id);
             removeIdFromStorageArray('likes', goods.id);
+            // 댓글 삭제
+            const allComments = localStorage.getItem('comments');
+            if (allComments) {
+                const parsed: Comment[] = JSON.parse(allComments);
+                const updated = parsed.filter(comment => comment.goodsId !== goods.id);
+                localStorage.setItem('comments', JSON.stringify(updated));
+            }
             navigate('/');
         }
     }
+
+    const handleAddComment = () => {
+        if (!newComment.trim() || !id) return;
+
+        const newEntry: Comment = {
+            id: crypto.randomUUID(),
+            goodsId: id,
+            content: newComment,
+            createdAt: new Date().toISOString(),
+        };
+
+        const updated = [...comments, newEntry];
+        setComments(updated);
+        setNewComment('');
+
+        const all = localStorage.getItem('comments');
+        const allComments: Comment[] = all ? JSON.parse(all) : [];
+        const updatedAll = [...allComments, newEntry];
+        localStorage.setItem('comments', JSON.stringify(updatedAll));
+    };
 
     return (
         <Layout>
@@ -103,12 +154,9 @@ const Detail = () => {
                                     !pwMatched ? (
                                         <div className={styles.edit}>
                                             <form onSubmit={handleCheckPassword}>
-                                                <span>수정 및 삭제 : </span>
                                                 <input type="password" placeholder="비밀번호 입력" value={inputPw} onChange={(e) => setInputPw(e.target.value)}
                                                     className={styles.input} autoComplete="off" />
-                                                <div className={styles.btnWrap}>
-                                                    <button className={styles.editBtn} type="submit">비밀번호 확인</button>
-                                                </div>
+                                                <button className={styles.editBtn} type="submit">비밀번호 확인</button>
                                             </form>
                                         </div>
                                     ) :
@@ -122,6 +170,30 @@ const Detail = () => {
                                             </button>
                                         </div>)
                                 }
+                                <div className={styles.commentSection}>
+                                    <ul className={styles.commentList}>
+                                        {comments.map(comment => (
+                                            <li key={comment.id} className={styles.commentItem}>
+                                                <p>{comment.content}</p>
+                                                <span className={styles.commentDate}>
+                                                    {new Date(comment.createdAt).toLocaleString()}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <div className={styles.commentInputWrap}>
+                                        <input
+                                            type="text"
+                                            placeholder="댓글을 입력하세요"
+                                            value={newComment}
+                                            onChange={(e) => setNewComment(e.target.value)}
+                                            className={styles.input}
+                                        />
+                                        <button onClick={handleAddComment} className={styles.editBtn}>
+                                            등록
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>)
                         : (<p style={{ padding: '40px 0', textAlign: 'center' }}>굿즈를 찾을 수 없습니다</p>)

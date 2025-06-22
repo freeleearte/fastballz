@@ -7,13 +7,14 @@
 
 .goods {
     width: 670px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 40px;
     padding: 5px;
     margin-right: 50px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.10);
+    background: rgba(0, 0, 0, 0.30);
     background-blend-mode: plus-lighter;
     backdrop-filter: blur(0.25em) brightness(1.2) saturate(1.2);
     box-shadow:
@@ -50,12 +51,15 @@
 .goods .txt {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     margin-bottom: 30px;
+    color: var(--font-color-1);
+    font-family: var(--main-font);
 }
 
 .goods h2 {
     font-size: 33px;
+    font-weight: 700;
 }
 
 .goods p {
@@ -69,25 +73,49 @@
 .edit form {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1vw;
+}
+
+.edit .editBtn {
+    height: 40px;
+}
+
+.edit .input {
+    height: 40px;
+    width: 12vw;
 }
 
 .editBtn {
-    padding: 5px 10px;
+    padding-inline: 1vw;
+    height: 60px;
     background-color: inherit;
-    color: #000;
-    border: 1px solid var(--main-color);
     border-radius: 100px;
     font-family: var(--main-font);
     font-weight: 700;
     font-size: 18px;
     transition: border-color 0.2s ease;
+    background: rgba(242, 105, 73, 0.40);
+    background-blend-mode: plus-lighter;
+    backdrop-filter: blur(0.25em) brightness(1.2) saturate(1.2);
+    box-shadow:
+        0 0.1em 0.25em 0 oklch(0 0 0 / 15%),
+        0 0 1em 0 oklch(0 0 0 / 12.5%),
+        inset 0.075em 0.075em 0.025em 0 oklch(1 0 0 / 20%),
+        inset 0.15em 0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset -0.075em -0.075em 0.025em 0 oklch(1 0 0 / 40%),
+        inset -0.15em -0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset 0 0 3em .5em oklch(0 0 0 / 20%);
+    color: #fff;
 }
 
 .editBtnWrap {
     display: flex;
     gap: 12px;
     align-self: flex-end;
+}
+
+.editBtnWrap .editBtn {
+    height: 40px;
 }
 
 .formWrap {
@@ -130,13 +158,23 @@
 }
 
 .input {
-    padding: 10px;
+    padding: 1vw;
     font-size: 20px;
-    border: 3px solid var(--main-color);
-    border-radius: 20px;
-    background-color: inherit;
+    border-radius: 100px;
     height: 60px;
     font-family: var(--main-font);
+    background: rgba(0, 0, 0, 0.50);
+    background-blend-mode: plus-lighter;
+    backdrop-filter: blur(0.25em) brightness(1.2) saturate(1.2);
+    box-shadow:
+        0 0.1em 0.25em 0 oklch(0 0 0 / 15%),
+        0 0 1em 0 oklch(0 0 0 / 12.5%),
+        inset 0.075em 0.075em 0.025em 0 oklch(1 0 0 / 20%),
+        inset 0.15em 0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset -0.075em -0.075em 0.025em 0 oklch(1 0 0 / 40%),
+        inset -0.15em -0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset 0 0 3em .5em oklch(0 0 0 / 20%);
+    color: #fff;
 }
 
 input[type=file]::file-selector-button {
@@ -163,7 +201,7 @@ input[type=file]::file-selector-button {
 
 .btnWrap {
     padding: 10px;
-    border: 2px solid var(--main-color);
+    /* border: 2px solid var(--main-color); */
     border-radius: 100px;
     cursor: pointer;
     transition: border-color 0.2s ease;
@@ -188,7 +226,7 @@ input[type=file]::file-selector-button {
 .btnWrap:hover,
 .button:hover,
 .editBtn:hover {
-    border-color: #3e4dd4;
+    border-color: #fff;
 }
 
 .previewWrap {
@@ -226,4 +264,50 @@ input[type=file]::file-selector-button {
 
 .card {
     height: 300px;
+}
+
+.commentSection {
+    width: 100%;
+    border-top: 1px solid #636363;
+    margin-top: 40px;
+    padding-top: 30px;
+}
+
+.commentList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-inline: 11px;
+}
+
+.commentItem {
+    color: #fff;
+    display: flex;
+    gap: 20px;
+    font-family: var(--eng-font);
+}
+
+.commentItem p {
+    font-size: 20px;
+}
+
+.commentDate {
+    color: #666666;
+    font-size: 18px;
+}
+
+.commentInputWrap {
+    width: 100%;
+    display: flex;
+    gap: 1vw;
+    margin-top: 30px;
+    margin-bottom: 1vw;
+}
+
+.commentInputWrap .input {
+    flex: 5;
+}
+
+.commentInputWrap .editBtn {
+    flex: 1;
 }

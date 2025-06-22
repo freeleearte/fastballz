@@ -12,7 +12,7 @@
 .newsItem .img {
     width: 50%;
     height: 100%;
-    background-color: var(--sub-color);
+    background-color: var(--main-color);
     border-radius: 20px;
 }
 
@@ -26,12 +26,12 @@
     font-family: var(--main-font);
     font-weight: 700;
     font-size: 32px;
-    color: var(--main-color);
+    color: #fff;
 }
 
 .newsItem .txt p {
     font-size: 25px;
     font-family: var(--title-font);
-    color: #2d2d2d;
+    color: #fff;
     line-height: 1.5;
 }

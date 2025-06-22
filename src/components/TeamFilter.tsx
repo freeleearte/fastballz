@@ -12,7 +12,7 @@ interface TeamFilterProps {
     onToggleTeam: (team: string) => void;
 }
 
-const teams = [
+export const teams = [
     { id: 'kia', name: 'KIA 타이거즈' },
     { id: 'doosan', name: '두산 베어스' },
     { id: 'kt', name: 'KT 위즈' },

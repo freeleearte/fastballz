@@ -2,6 +2,7 @@ import { Goods } from "../types";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from './GoodsCard.module.css'
+import { getCommentCount } from "../pages/Detail";
 
 //Props 타입 정리 (받을 데이터들)
 interface Props {
@@ -15,6 +16,11 @@ interface Props {
 
 const GoodsCard = ({ item, likedIds, setLikedIds, goodsList, setGoodsList, className }: Props) => {
     const [liked, setLiked] = useState(false); // 내가 아이템을 찜했는지
+    const [commentCount, setCommentCount] = useState(0);
+
+    useEffect(() => {
+        setCommentCount(getCommentCount(item.id));
+    }, [item.id]);
 
     // 처음 들어오거나 likedIds가 바뀌면 liked 상태를 업데이트
     useEffect(() => {
@@ -54,7 +60,7 @@ const GoodsCard = ({ item, likedIds, setLikedIds, goodsList, setGoodsList, class
                         </div>
                         <div className={styles.right}>
                             <p className={styles.likes}>❤️ {item.likes}</p>
-                            <p className={styles.comments}>❤️ {item.likes}</p>
+                            <p className={styles.comments}>❤️ {commentCount}</p>
                         </div>
                     </div>
                     <div className={styles.bot}>
