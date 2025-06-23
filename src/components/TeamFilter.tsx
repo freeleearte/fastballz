@@ -5,6 +5,11 @@ import filterOffImg from '../asset/filterbutton_off.png';
 import filterOnImg from '../asset/filterbutton_on.png';
 import checkboxImg from '../asset/checkbox.png';
 import checkedImg from '../asset/checkbox_checked.png';
+import hamImg from '../asset/ham.png';
+import recentImg from '../asset/recent.png';
+import trendingImg from '../asset/trending.png';
+import teamsImg from '../asset/teams.png';
+import uploadImg from '../asset/upload.png';
 import { NavLink } from 'react-router-dom';
 
 interface TeamFilterProps {
@@ -33,19 +38,19 @@ const TeamFilter: React.FC<TeamFilterProps> = ({ selectedTeams, onToggleTeam }) 
     return (
         <div className={`${styles.filter} ${showFilter ? styles.show : styles.hide}`}>
             <div className={styles.toggleBtn} onClick={() => setShowFilter(!showFilter)} >
-                <img src="" alt="" />
+                <img src={hamImg} alt="메뉴 토글 버튼" />
             </div>
             <div className={styles.top}>
                 <NavLink to={`/upload`}>
-                    <img src="" alt="" />
+                    <img src={uploadImg} alt="업로드버튼" />
                     <p>Upload</p>
                 </NavLink>
             </div>
             <div className={styles.mid}>
-                <p><NavLink to={`/community`} className={({ isActive }) => (isActive ? styles.active : '')}><img src="" alt="" />최신</NavLink></p>
-                <p><NavLink to={`/trending`} className={({ isActive }) => (isActive ? styles.active : '')}><img src="" alt="" />인기</NavLink></p>
+                <p><NavLink to={`/community`} className={({ isActive }) => (isActive ? styles.active : '')}><img src={recentImg} alt="최신 버튼" />최신</NavLink></p>
+                <p><NavLink to={`/trending`} className={({ isActive }) => (isActive ? styles.active : '')}><img src={trendingImg} alt="인기 버튼" />인기</NavLink></p>
                 <p onClick={() => setShowTeamList(!showTeamList)} className={styles.toggleTitle}>
-                    <img src="" alt="" />
+                    <img src={teamsImg} alt="구단 별 이미지" />
                     구단 별
                 </p>
                 <ul className={`${styles.teamList} ${showTeamList ? styles.open : styles.closed}`}>
@@ -68,7 +73,7 @@ const TeamFilter: React.FC<TeamFilterProps> = ({ selectedTeams, onToggleTeam }) 
             </div>
             <div className={styles.bot}>
                 <p>밴치 클리어링 모드</p>
-                {/* <img src={badWordFilterOn ? filterOnImg : filterOffImg} alt="욕설 필터링 모드" onClick={toggleBadWordFilter} /> */}
+                <img src={badWordFilterOn ? filterOnImg : filterOffImg} alt="욕설 필터링 모드" onClick={toggleBadWordFilter} />
             </div>
         </div>
     );

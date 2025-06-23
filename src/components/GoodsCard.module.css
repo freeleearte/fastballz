@@ -39,9 +39,10 @@
 }
 
 .image {
-    width: 100%;
+    width: 110%;
     position: absolute;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     top: 0;
     object-fit: cover;
     height: auto;

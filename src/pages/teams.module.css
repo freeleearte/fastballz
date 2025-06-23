@@ -136,7 +136,7 @@
 .main {
     height: 470px;
     border-radius: 20px;
-    background: rgb(73, 76, 242);
+    background: rgb(0, 0, 0);
     backdrop-filter: blur(0.25em) brightness(1.2) saturate(1.2);
     box-shadow:
         0 0.1em 0.25em 0 oklch(0 0 0 / 15%),
@@ -152,8 +152,50 @@
     color: var(--font-color-1);
 }
 
+.doosan {
+    background-color: #006FFF20;
+}
+
+.kia {
+    background-color: #D7171820;
+}
+
+.kt {
+    background-color: #23181520;
+}
+
+.lg {
+    background-color: #7D7D7D20;
+}
+
+.samsung {
+    background-color: #005BAC20;
+}
+
+.nc {
+    background-color: #C7B28420;
+}
+
+.kiwoom {
+    background-color: #87001F20;
+}
+
+.hanwha {
+    background-color: #EA551420;
+}
+
+.lotte {
+    background-color: #03275520;
+}
+
+.ssg {
+    background-color: #C3172D20;
+}
+
 .left {
     width: 40%;
+    display: flex;
+    align-items: center;
 }
 
 .right {
@@ -256,6 +298,28 @@
     align-items: center;
     padding: 40px 22px;
     gap: 26px;
+}
+
+.itemI {
+    flex: 1;
+    border-radius: 20px;
+    background: rgb(0, 0, 0, 0.30);
+    backdrop-filter: blur(0.25em) brightness(1.2) saturate(1.2);
+    box-shadow:
+        0 0.1em 0.25em 0 oklch(0 0 0 / 15%),
+        0 0 1em 0 oklch(0 0 0 / 12.5%),
+        inset 0.075em 0.075em 0.025em 0 oklch(1 0 0 / 20%),
+        inset 0.15em 0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset -0.075em -0.075em 0.025em 0 oklch(1 0 0 / 40%),
+        inset -0.15em -0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset 0 0 3em .5em oklch(0 0 0 / 20%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.itemI img {
+    width: 100%;
 }
 
 .item:nth-child(3) {

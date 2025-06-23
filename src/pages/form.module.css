@@ -134,7 +134,7 @@
 
 .form {
     width: 900px;
-    align-self: center;
+    margin-inline: auto;
     display: flex;
     flex-direction: column;
     gap: 60px;
@@ -145,16 +145,29 @@
     font-size: 20px;
     font-family: var(--main-font);
     margin-bottom: -5%;
+    color: #fff;
 }
 
 .option {
     width: 20%;
     padding: 10px;
     background-color: inherit;
-    border: 3px solid var(--main-color);
+    border: 0;
+    background: rgba(0, 0, 0, 0.50);
+    background-blend-mode: plus-lighter;
+    backdrop-filter: blur(0.25em) brightness(1.2) saturate(1.2);
+    box-shadow:
+        0 0.1em 0.25em 0 oklch(0 0 0 / 15%),
+        0 0 1em 0 oklch(0 0 0 / 12.5%),
+        inset 0.075em 0.075em 0.025em 0 oklch(1 0 0 / 20%),
+        inset 0.15em 0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset -0.075em -0.075em 0.025em 0 oklch(1 0 0 / 40%),
+        inset -0.15em -0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset 0 0 3em .5em oklch(0 0 0 / 20%);
     font-size: 20px;
     font-family: var(--main-font);
     border-radius: 20px;
+    color: #fff;
 }
 
 .input {
@@ -192,11 +205,20 @@ input[type=file]::file-selector-button {
     padding: 10px;
     font-size: 20px;
     height: 100px;
-    border: 3px solid var(--main-color);
     border-radius: 20px;
     resize: vertical;
-    background-color: inherit;
     font-family: var(--main-font);
+    background: rgba(0, 0, 0, 0.50);
+    background-blend-mode: plus-lighter;
+    backdrop-filter: blur(0.25em) brightness(1.2) saturate(1.2);
+    box-shadow:
+        0 0.1em 0.25em 0 oklch(0 0 0 / 15%),
+        0 0 1em 0 oklch(0 0 0 / 12.5%),
+        inset 0.075em 0.075em 0.025em 0 oklch(1 0 0 / 20%),
+        inset 0.15em 0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset -0.075em -0.075em 0.025em 0 oklch(1 0 0 / 40%),
+        inset -0.15em -0.15em 0.1em 0 oklch(1 0 0 / 30%),
+        inset 0 0 3em .5em oklch(0 0 0 / 20%);
 }
 
 .btnWrap {

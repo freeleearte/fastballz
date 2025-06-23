@@ -3,10 +3,12 @@ import Layout from "../components/Layout";
 import { teams } from "../components/TeamFilter";
 import { useTeamInfo } from "../context/TeamInfoContext";
 import styles from './teams.module.css';
+import leftImg from '../asset/left.png';
+import rightImg from '../asset/right.png';
 
 const Teams = () => {
     const { teamDetails } = useTeamInfo();
-    const [selectedTeamId, setSelectedTeamId] = useState("kia");
+    const [selectedTeamId, setSelectedTeamId] = useState("doosan");
     const selectedTeamData = teamDetails[selectedTeamId];
     const [showFilter, setShowFilter] = useState(true);
 
@@ -36,11 +38,11 @@ const Teams = () => {
                 <div className={styles.detail}>
                     {selectedTeamData ? (
                         <>
-                            <div className={styles.main}>
+                            <div className={`${styles.main} ${styles[selectedTeamId]}`}>
                                 <div className={styles.left}>
-                                    <img src="" alt="left arrow" />
-                                    <img src="" alt="" />
-                                    <img src="" alt="right arrow" />
+                                    <img src={leftImg} alt="left arrow" />
+                                    <img src={selectedTeamData.images.logo} alt={selectedTeamData.name} />
+                                    <img src={rightImg} alt="right arrow" />
                                 </div>
                                 <div className={styles.right}>
                                     <h2>{selectedTeamData.name} <span>({selectedTeamData.engName})</span></h2>
@@ -96,8 +98,8 @@ const Teams = () => {
                                 </div>
                             </div>
                             <div className={styles.itemWrapL}>
-                                <div className={styles.item}>
-                                    <img src="" alt="" />
+                                <div className={styles.itemI}>
+                                    <img src={selectedTeamData.images.stadium} alt={selectedTeamData.stadiumName} />
                                 </div>
                                 <div className={styles.itemL}>
                                     <h5>{selectedTeamData.stadiumName}</h5>

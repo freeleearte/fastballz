@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from './GoodsCard.module.css'
 import { getCommentCount } from "../pages/Detail";
+import likeImg from "../asset/heart.png";
+import commentImg from "../asset/comment.png";
 
 //Props 타입 정리 (받을 데이터들)
 interface Props {
@@ -59,8 +61,8 @@ const GoodsCard = ({ item, likedIds, setLikedIds, goodsList, setGoodsList, class
                             <img src="" alt="" />
                         </div>
                         <div className={styles.right}>
-                            <p className={styles.likes}>❤️ {item.likes}</p>
-                            <p className={styles.comments}>❤️ {commentCount}</p>
+                            <p className={styles.likes}><img src={likeImg} alt="좋아요" /> {item.likes}</p>
+                            <p className={styles.comments}><img src={commentImg} alt="댓글" /> {commentCount}</p>
                         </div>
                     </div>
                     <div className={styles.bot}>
